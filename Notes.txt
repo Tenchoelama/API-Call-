@@ -1,0 +1,133 @@
+Application Programming Interface(API) 
+-----------------------------------------------------------------------------------------------------------------
+
+- Understand the business process on which you are going to design your API on
+
+- HTTP concepts 
+
+- 3 principles for designing a good API 
+	
+	> What the API does
+	> What the API makes Easy 
+	> What the User wants to do
+
+- 3 approaches/strategies that allows you to add an API to your system 
+	
+	> Bolt-On
+		-For existing systems
+		-Brute-force approach
+		-The fasted way to build an API 
+		-Benefit: takes advantages of existing code and systems
+		-Drawback: problems in the application or architecture leak through into the API
+	
+	> Greenfield
+		-For new systems 
+		-API or mobile-first mindset
+		-Benefits: learn new technologies and reinvigorate the team
+		-Drawaback: often requires massive investment before any benefit starts to occur
+
+	> Facade
+		-replace piece by piece 
+		Benefits: ideal for legacy systems as the application is always functional 
+		Drawback: mulitple mindsets in the system 
+		Drawback: hard to replicate behaviour for a full one-on-one conversion
+
+- API Modeling Process
+
+	>Step 1: Identify Participants
+
+		- entities(humans/bot) who will use the API
+		- internal or external? 
+		- active or passive?
+		- determine the boundaries of a modeling process early
+
+	>Step 2: Identify Activities 
+		
+		- define step by step what the process will look like for the business model
+		- for a coffee shop example, from the moment to placing an order to barista delivering
+		- this way we have defined clearly where responisbilites begin and end.  
+ 
+	>Step 3: Create API definitions 
+
+		- look at the steps defined earlier and define what actions is needed to make it work
+		- this is where we can define our CRUD operations as well 
+		- mapping activities to verbs and actions
+		- API resourses(anything users interact with)
+		- a good way to identify the resources in our steps is to look for nouns
+
+		-        CRUD                          HTTP verbs
+		------------------                -------------------
+			Create  		=		Post
+			Read              =       	Get
+			Update		=		Put
+			Delete		=		Delete
+		
+		- API relationships
+
+			-Indepenent: can exists on its own without any other resources 
+			-dependent: can only exist if another resource already exists 
+			-Associative: can be dependant or independent but needs additinal information to describe it
+
+
+			 
+		   
+
+	>Step 4: Validate API  
+		
+		- this is where we test our API 
+		- write code as if the API already exists 
+		- look for gaps and potential issues
+		- Use a Microframework
+			-use hapi.js for Node, Sinatra for Ruby, Slim or silex in PHP 
+			-accept incoming requests 
+			-validate verbs and URL patterns 
+			-return static HTTP response codes and payloads
+
+
+- HTTP (Hypertext Tranfer Protocol)
+
+	- is a protocol for communication between a client and a server 
+	- is a stateless protocol, meaning that each request and response between the client and server is independent
+
+-REST (Representional State Trabsfer
+
+	- is an architectural style that provides guidelines for creating web services
+	- RESTful web services are designed to be simple, lightweight, and scalable
+	- relies on the HTTP protocol to transfer data and use HTTP verbs to perform operations on resources
+	- use URIs (Uniform Resource Identifiers) to identify resources, and data is transferred in a standardized 			format such as JSON or XML
+-API Key
+
+	- is a unique identifier that is used to authenticate and authorize access to an API 
+	- Ex. api_key=1234567890abcdefg
+	
+
+-For securing API, OAuth(Authorization protocol) 2.0 is recomended 
+	
+	-upon authentication, a token maps to an authorization description
+	-reliable and well established
+	-massive ecosystem
+	-open source 
+
+- API versoning 
+
+	- is the practice of creating multiple versions of an API to manage changes and updates over time
+	- All API's in an organization should take the same versioning approach beacuase it --
+		- Simplifies training 
+		- increases predictabilty for users
+		- maintain clarity 
+
+- Media types(a.k.a MIME types)
+
+	- are a way of identifying the format of data being transferred over the internet
+	- Media types are identified using a string that follows a standard format, such as application/json or 			text/html. 
+	- The three most common media types uses in API development are:
+		> Collection+JSON
+		> Hypertext Applicastion Langauge(HAL)
+		> Ion Hypermedia Type 
+	
+
+
+- commands 
+
+> The curl -i command is used to retrieve and display the HTTP headers of a given URL
+- Ex. curl -i https://www.google.com
